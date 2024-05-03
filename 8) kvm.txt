@@ -1,0 +1,30 @@
+*egrep -c '(vmx|svm)' /proc/cpuinfo
+(if greater than 0, then virtualisation is possible)
+
+sudo apt install cpu-checker
+(to check if kvm can be installed)
+
+sudo kvm-ok
+(to check for installation of kvm)
+
+*sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+(install all the pakages)
+
+sudo systemctl status libvirtd
+(to check status of virtualisation daemon)
+
+sudo systemctl enable --now libvirtd
+(daemon will start automatically when system is restarted)
+
+sudo systemctl restart libvirtd
+(it restarts deamon to apply changes)
+
+lsmod | grep -i kvm
+(to check module is installed or not)
+
+*virt-manager
+(to start kvm)
+
+After the kvm starts
+- File -> New VM -> local install (iso) -> Browse (select .iso file) -> Forward -> Finish
+(New OS/VM will be installed and ready to use)
